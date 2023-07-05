@@ -1,9 +1,9 @@
 
 const jwt = require('jsonwebtoken')
 
-let generateToken = async (user) => {
+let generateToken = async (id, res) => {
 	try {
-		const payload = { ...user };
+		const payload = {id};
 		const accessToken = jwt.sign(
 			payload,
 			process.env.ACCESS_JWT_SECRET,
@@ -16,7 +16,12 @@ let generateToken = async (user) => {
 			{ expiresIn: "1d" }
 		);
 
-		return [accessToken, newRefreshToken];
+		res.cookie('accessToken', accessToken, { httpOnly: true, maxAge: 24 * 60 * 60 * 1000 });
+    	res.cookie('refreshToken', newRefreshToken, { httpOnly: true});
+		return {
+			access: accessToken,
+			refresh: newRefreshToken
+		};
 		
 	} catch (err) {
 		console.log(err)

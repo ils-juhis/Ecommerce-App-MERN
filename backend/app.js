@@ -7,6 +7,8 @@ var serviceAccount = require("./serviceAccountKey.json");
 const errorMiddleware = require("./middlewares/error")
 const productRoutes = require("./routes/productRoutes")
 const userRoutes = require("./routes/userRoutes")
+const orderRoutes = require("./routes/orderRoutes")
+
 app.use(express.json())
 app.use(cookieParser())
 
@@ -15,6 +17,7 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   storageBucket: process.env.STORAGE_BUCKET
 });
+
 //express functionalit
 //The app.locals object has properties that are local variables within the application, and will be available in templates rendered with res.render.
 global.bucket = getStorage().bucket()
@@ -23,6 +26,7 @@ global.bucket = getStorage().bucket()
 //route
 app.use("/api/v1", productRoutes)
 app.use("/api/v1", userRoutes)
+app.use("/api/v1", orderRoutes)
 
 
 //middleware for error handler
