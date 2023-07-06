@@ -9,6 +9,10 @@ router.route("/order/me").get(isAuthenticatedUser, orderControllers.myOrders)
 //always write params route in last
 router.route("/order/:id").get(isAuthenticatedUser, orderControllers.getSingleOrder)
 
+router.route("/admin/orders").get(isAuthenticatedUser, authorizeRoles("admin"), orderControllers.getAllOrders);
 
+router.route("/admin/order/:id")
+  .put(isAuthenticatedUser, authorizeRoles("admin"), orderControllers.updateOrder)
+  .delete(isAuthenticatedUser, authorizeRoles("admin"), orderControllers.deleteOrder);
 
 module.exports = router;
