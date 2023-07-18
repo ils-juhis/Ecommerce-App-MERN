@@ -1,0 +1,126 @@
+.navbar-top{
+    .logo {
+        max-width: 100%;
+        height: 40px;
+    }
+    
+    .link-box {
+        text-decoration: none;
+        .aside-link{
+            color: #000000;
+            padding: 0px 15px;
+            font-size: 17px;
+            &:hover{
+                color: #487FCC;
+            }
+        }
+    }
+
+    .link-box.active{
+        .aside-link{
+            color: #386CB5;
+
+        }
+    }
+
+
+    .icons{
+        font-size: 20px !important;
+        height: 32px;
+    }
+    
+    .search{
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: white;
+        justify-content: space-between;
+        align-items: center;
+    
+    }
+    
+    .search input{
+        outline: none;
+        border: none;
+        font-size: 13px;
+        height: 30px;
+    }
+    
+    .aside-icon{
+        display: none;
+    }
+    
+    .navbar{
+        @media screen and (max-width: 992px) {
+            position: fixed;
+            align-items: start;
+            justify-content: flex-start;
+            top:0;
+            left: 0;
+            height: 100%;
+            width: 250px;
+            flex-direction: column;
+            background-color: #F8F9FA;
+            transition: all ease-in 0.5s;
+
+            .link-box{
+                text-decoration: none;
+                display: flex;
+                color: #7E84A3;
+                width: 100%;
+                font-weight: 600;
+    
+                .aside-link{
+                    font-size: 14px;
+                    padding: 10px 15px;
+                }
+    
+                .aside-icon {
+                    color: #7E84A3;
+                    display: inline;
+                    font-size: 20px;
+                    padding-right: 10px;
+                    img{
+                        width: 20px;
+                        filter: invert(61%) sepia(9%) saturate(920%) hue-rotate(193deg) brightness(85%) contrast(93%);
+                        opacity: 0.7;
+                    }
+                }
+    
+                &:hover{
+                    background-color: #F2F7FF;
+                    color: black !important;
+                }
+            }
+    
+            .link-box.active{
+                color: #386CB5;
+                background-color: #F2F7FF;
+    
+                &::before{
+                    content: "\00a0";
+                    display: inline-block;
+                    background-color: #487FCC;
+                    width: 5px;
+        
+                    
+                }
+                
+                .aside-icon {
+                    color: #000000;
+                    font-size: 20px;
+                    padding-right: 10px;
+                    img{
+                        width: 20px;
+                        filter: invert(1) ;
+                    }
+                }
+            }
+        }
+
+        >div{
+            @media screen and (max-width: 992px) {
+                width: 100%;
+            }
+        }
+    }
+}
