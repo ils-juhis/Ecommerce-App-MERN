@@ -1,0 +1,133 @@
+.home-container{
+
+    button{
+        outline: none;
+        border: none;
+    }
+
+    .carousel-bg{
+        width: 100%;
+        min-height: 650px;
+        background: linear-gradient(rgba(15, 23, 43, .7), rgba(15, 23, 43, .7)), url("../../assets/images/hero.jpg");
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: cover;
+
+        .search{
+            width: 50%;
+            height: 50px;
+            background-color: white;
+            margin: 130px 0 100px;
+    
+            input{
+                outline: none;
+                border: none;
+                width: 100%;
+            }
+            span{
+                cursor: pointer;
+                font-size: 24px;
+                background-color: #1dae18;
+            }
+    
+            @media screen and (max-width: 576px) {
+                width: 80%;
+            }
+        }
+    
+        .carousel-container{
+            color: white;
+            padding: 40px 20px;
+            
+            .first-heading{
+                font-size: 40px;
+                font-weight: 800;
+                font-family: 'Nunito', sans-serif;        
+            }
+            .second-heading{
+                color: #3deefb;
+    
+                font-size: 55px;
+                font-weight: 800;
+                font-family: 'Nunito', sans-serif;        
+            }
+    
+            @media screen and (max-width: 500px) {
+                .first-heading{
+                    font-size: 35px;      
+                }
+                .second-heading{    
+                    font-size: 40px;  
+                }
+            }
+    
+            .content{
+                font-size: 20px;
+            }
+    
+            .carousel-indicators {
+                bottom: -50px;
+            }
+        }
+    }
+
+    .shop{
+        margin-top: 60px;
+        padding: 10px;
+        font-weight: 600;
+        background-color: #0d1d67;
+        color: white;
+        text-transform: uppercase;
+
+        &:hover{
+            background-color: #12257c;
+        }
+    }
+    
+    
+    .service-box{
+        .service-item{
+            .icon{
+                font-size: 44px;
+                display: flex;
+                transition: all .3s ease 0s;
+            }
+
+            .heading{
+                font-weight: 800;
+                font-size: 22px;
+                font-family: 'Nunito', sans-serif;
+            }
+
+            &:hover{
+                .animated { 
+                    -webkit-animation-duration: 1s;
+                    animation-duration: 1s; 
+                    -webkit-animation-fill-mode: both; 
+                    animation-fill-mode: both; 
+                    -webkit-animation-name: tada; 
+                    animation-name: tada; 
+                 }
+            }
+        }
+    }
+
+
+
+     
+     @-webkit-keyframes tada { 
+        0% {-webkit-transform: scale(1);}
+        10%, 20% {-webkit-transform: scale(0.9) rotate(-3deg);} 
+        30%, 50%, 70%, 90% {-webkit-transform: scale(1.1) rotate(3deg);}
+        40%, 60%, 80% {-webkit-transform: scale(1.1) rotate(-3deg);} 
+        100% {-webkit-transform: scale(1) rotate(0);} 
+     }
+     
+     @keyframes tada { 
+        0% {transform: scale(1);} 
+        10%, 20% {transform: scale(0.9) rotate(-3deg);} 
+        30%, 50%, 70%, 90% {transform: scale(1.1) rotate(3deg);} 
+        40%, 60%, 80% {transform: scale(1.1) rotate(-3deg);} 
+        100% {transform: scale(1) rotate(0);}
+     }
+}

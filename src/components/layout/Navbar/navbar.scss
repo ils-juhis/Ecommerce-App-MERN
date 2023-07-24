@@ -1,7 +1,26 @@
 .navbar-top{
+    position: sticky;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 99999;
     .logo {
         max-width: 100%;
         height: 40px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+
+        @media screen and (max-width: 350px) {
+            font-size: 15px;
+        }
+
+        img{
+            width: 26px;
+            @media screen and (max-width: 350px) {
+                width: 21px;
+            }
+        }
     }
     
     .link-box {
@@ -19,7 +38,7 @@
     .link-box.active{
         .aside-link{
             color: #386CB5;
-
+            font-weight: 700 !important;
         }
     }
 
@@ -28,21 +47,12 @@
         font-size: 20px !important;
         height: 32px;
     }
-    
-    .search{
-        border-radius: 20px;
-        overflow: hidden;
-        background-color: white;
-        justify-content: space-between;
-        align-items: center;
-    
-    }
-    
-    .search input{
-        outline: none;
-        border: none;
-        font-size: 13px;
-        height: 30px;
+
+    .right-icons{    
+        a>svg, span>svg{
+            margin: auto;
+            display: block;
+        }
     }
     
     .aside-icon{
@@ -59,7 +69,7 @@
             height: 100%;
             width: 250px;
             flex-direction: column;
-            background-color: #F8F9FA;
+            background-color: white;
             transition: all ease-in 0.5s;
 
             .link-box{
@@ -67,8 +77,7 @@
                 display: flex;
                 color: #7E84A3;
                 width: 100%;
-                font-weight: 600;
-    
+
                 .aside-link{
                     font-size: 14px;
                     padding: 10px 15px;
@@ -95,14 +104,17 @@
             .link-box.active{
                 color: #386CB5;
                 background-color: #F2F7FF;
-    
+
                 &::before{
                     content: "\00a0";
                     display: inline-block;
                     background-color: #487FCC;
                     width: 5px;
-        
-                    
+         
+                }
+
+                .aside-link{
+                    font-weight: 700 !important;
                 }
                 
                 .aside-icon {

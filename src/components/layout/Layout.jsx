@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar/Navbar';
-import Footer from './Footer';
+import Footer from './Footer/Footer';
 const Layout = () => {
   const [state, setState] = useState(false)
   const navRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const [windowSize, windowSizeSet] = useState(null)
 
   const outsideClickHandler = (e)=>{
     console.log(e.target)
@@ -14,14 +15,17 @@ const Layout = () => {
     }
   }
   const toggleBtn =()=>{
-    if(state){
-      setState(false)
-    }else{
-      setState(true)
+    if(windowSize<992){
+      if(state){
+        setState(false)
+      }else{
+        setState(true)
+      }
     }
   }
 
   useEffect(()=>{
+      windowSizeSet(window.innerWidth)
       if(window.innerWidth <=992){
         document.addEventListener("click", outsideClickHandler);
         return () => {
