@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import {CiSearch} from 'react-icons/ci'
 import './Home.scss'
 import { Col, Row } from 'react-bootstrap';
 import { servicesData } from '../../data/servicesData';
 import Product from '../../components/Product/Product';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProducts } from '../../store/actions/productAction';
 
 function Home() {
+  const dispatch = useDispatch();
+  const {loading, error, products, productsCount}= useSelector(state => state.products)
+
+  useEffect(()=>{
+    dispatch(getAllProducts())
+  },[dispatch])
   return (
     <div className='home-container'>
       <div className='carousel-bg py-5'>
@@ -47,8 +55,8 @@ function Home() {
         {
           servicesData.map((item, index)=>{
             return(
-              <Col sm="6" xl="3" key={index}>
-              <div className="service-item shadow-sm p-3 bg-light rounded-2 d-flex align-items-center">
+              <Col sm="6" xl="3" className='align-items-center' key={index}>
+              <div className="service-item rounded-2 d-flex align-items-center">
                 <div className="icon animated pe-3">{item.icon}</div>
                 <div className="content">
                   <div className="heading">{item.title}</div>
@@ -64,8 +72,14 @@ function Home() {
         </Row>
       </div>
 
-      <div className="products">
-        <Product/>
+      <div className="products-box">
+        {
+          products && products.map((elem, index)=>{
+            return(
+              <Product product={elem} key={index}/>
+            )
+          })
+        }
       </div>
     </div>
   )

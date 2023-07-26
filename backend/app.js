@@ -8,9 +8,11 @@ const errorMiddleware = require("./middlewares/error")
 const productRoutes = require("./routes/productRoutes")
 const userRoutes = require("./routes/userRoutes")
 const orderRoutes = require("./routes/orderRoutes")
+const cors = require('cors')
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors())
 
 //firebase setup
 admin.initializeApp({
